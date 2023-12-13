@@ -6,16 +6,16 @@
 
 ###VARIABLES TO BE SET###
 ##Your name
-analyst=""
+analyst="Sarah Christofides"
 ##Your project title
-project=""
+project="Lung RNAseq November 2023"
 ##N.B. If you are working on a server that doesn't use scratch, leave the SAVEPATH commented out and set SCRATCHPATH to your data folder.
 ##Set path to directory for saving files
 ##SAVEPATH=/mnt/data/GROUP-yourgroup/yourusername/yourproject
 ##Set path to working directory on scratch
-SCRATCHPATH=
+SCRATCHPATH="/mnt/scratch/sbi9srj/Renata_Nov2023"
 ##Paste in the URLs to your files here, e.g. DOWNLOADURL=("https://url1" "https://url2")
-DOWNLOADURL=()
+DOWNLOADURL=('https://datahub1.bios.cf.ac.uk/sbi9srj/nextseq/231113_NB501042_0356_AH3J2HBGXT-fastqs_NAKdemux.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=sbi9srj%2F20231127%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231127T144829Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=65b2b109f0b1d89fe9b29330d0f19860dc7df37cdc0aee79e08984b52b47c9d4')
 #Set the slurm queue to use: defq for gomphus or iago, htc for hawk
 queue=defq
 ######
@@ -64,18 +64,18 @@ do
 	
 	##Download the data
 	echo -e "
-	echo Downloading ${DOWNLOADURL[$url]}
-	curl -s -o ${SCRATCHPATH}/01-download/download${url} $[LINK]}
-        echo Download ${DOWNLOADURL[$url]} complete
+	echo Downloading \"${DOWNLOADURL[$url]}\"
+	curl -s -o ${SCRATCHPATH}/01-download/download${url}.tar.gz $LINK
+        echo Download \"${DOWNLOADURL[$url]}\" complete
 
 	##Save the run name to a variable and rename the zip file
-	RUN=\$(tar -tf ${SCRATCHPATH}/01-download/download${url} | head -n 1)
+	RUN=\$(tar -tf ${SCRATCHPATH}/01-download/download${url}.tar.gz | head -n 1)
 	#RUN=\$(unzip -Z -1 ${SCRATCHPATH}/01-download/download${url}.zip | head -n 1 | sed -E 's/(.+)\/$/\1/')
-	mv ${SCRATCHPATH}/01-download/download${url} ${SCRATCHPATH}/01-download/\${RUN}.tar.gz
+	mv ${SCRATCHPATH}/01-download/download${url}.tar.gz ${SCRATCHPATH}/01-download/\${RUN}.tar.gz
 
 	##Copy the data to long term storage
 #	echo Copying \${RUN} to long term storage
-	##cp ${SCRATCHPATH}/01-download/\${RUN}.zip ${SAVEPATH}/\${RUN}.tar.gz
+	##cp ${SCRATCHPATH}/01-download/\${RUN}.tar.gz ${SAVEPATH}/\${RUN}.tar.gz
 
         ##Unzip the data
 	echo Unzipping \${RUN}

@@ -5,15 +5,15 @@
 
 ###VARIABLES TO BE SET###
 #Set the path to your directory on scratch - do not include a trailing /
-myDir=
+myDir=/mnt/scratch/sbi9srj/Renata_Nov2023/
 #Set your username
-userProject=
+userProject=sbi9srj
 #Were duplicates removed (rm) or not (mark)?
 DUP=mark
 #Set the name and path for the tar file (do not include the file extension)
-TAR=
+TAR=Renata_Nov2023
 #Set the path to the archive location. N.B. If this is a remote server, it will need a ssh key pair in place.
-ARCHIVE=
+#ARCHIVE=
 #Set the slurm queue to use: defq for gomphus, epyc for iago, htc for hawk
 queue=mammoth
 ######
@@ -69,7 +69,7 @@ done
 echo "tar -czvf ${myDir}/${TAR}.tar.gz --exclude={"${myDir}/ERR","${myDir}/OUT","${myDir}/temp"} ${myDir}" >> ${scriptName}
 
 ##Transfer it to the backup location
-echo "rsync ${myDir}/${TAR}.tar.gz ${ARCHIVE}" >> ${scriptName}
+#echo "rsync ${myDir}/${TAR}.tar.gz ${ARCHIVE}" >> ${scriptName}
 
 echo "exit 0" >> ${scriptName}
 

@@ -5,9 +5,9 @@
 
 ###VARIABLES TO BE SET###
 #Set the path to your directory on scratch (do not end with a /)
-myDir=
+myDir=/mnt/scratch/sbi9srj/Renata_Nov2023
 #Set your username
-userProject=
+userProject=sbi9srj
 #Set the slurm queue to use: defq for gomphus, epyc for iago, htc for hawk
 queue=epyc
 ######

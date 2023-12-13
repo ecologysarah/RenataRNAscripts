@@ -5,9 +5,9 @@
 
 ###VARIABLES TO BE SET###
 #Set the path to your directory on scratch
-myDir=
+myDir=/mnt/scratch/sbi9srj/Renata_Nov2023
 #Set your username
-userProject=
+userProject=sbi9srj
 #Set the path to your reference genome directory, FASTA file and GTF/GFF file
 GENOME=${myDir}/resources/humanGRCh38
 FASTA=GRCh38_latest_genomic.fna
@@ -20,7 +20,7 @@ queue=epyc
 
 mem="40G"
 cpu="4"
-runTime="02:00:00"
+runTime="03:00:00"
 scriptBase="04map"
 
 #Set the correct version of STAR
@@ -116,8 +116,8 @@ do
 	--outFileNamePrefix ${myDir}/04-star/\${sampleID}onemap_ \
 	--readFilesCommand zcat \
 	--genomeDir ${GENOME} \
-	--readFilesIn ${myDir}/02-trim/trim_\${sampleID}_R1.f*q.gz" >> ${scriptName} 
-	if [ "${ends}" = PE ]; then echo " ${myDir}/02-trim/trim_\${sampleID}_R2.f*q.gz" >> ${scriptName}; fi
+	--readFilesIn ${myDir}/02-trim/trim_\${sampleID}_R1_001.f*q.gz" >> ${scriptName} 
+	if [ "${ends}" = PE ]; then echo " ${myDir}/02-trim/trim_\${sampleID}_R2_001.f*q.gz" >> ${scriptName}; fi
 	
 	echo -e "\nexit 0" >> ${scriptName}
 

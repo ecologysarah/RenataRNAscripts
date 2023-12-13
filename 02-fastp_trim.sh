@@ -5,13 +5,13 @@
 
 ###VARIABLES TO BE SET###
 #Set the path to your directory on scratch
-myDir=
+myDir=/mnt/scratch/sbi9srj/Renata_Nov2023
 #Set your username
-userProject=
+userProject=sbi9srj
 #Indicate if the data is single-end (SE) or paired-end (PE)
 ends=SE
 #Indicate if you want to specify an adapter for SE reads (set as "" to omit)
-adapt=""
+adapt="AGATCGGAAGAGCACACGTCTGAACTCCAGTCA"
 #Set the slurm queue to use: defq for gomphus, epyc for iago, htc for hawk
 queue=epyc
 ######

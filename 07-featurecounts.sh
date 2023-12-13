@@ -5,9 +5,9 @@
 
 ###VARIABLES TO BE SET###
 #Set the path to your directory on scratch
-myDir=
+myDir=/mnt/scratch/sbi9srj/Renata_Nov2023/
 #Set your username
-userProject=
+userProject=sbi9srj
 #Set whether you want to use the version of the data with duplicates kept (mark) or removed (rm)
 DUP=mark
 #Indicate if the data is single-end (SE) or paired-end (PE)
